@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "../styles/Table.css";
+import "../styles/TableContainer.css";
 import API from "../utils/API";
+import TableBody from "./TableBody";
 
 
 export default class Table extends Component {
@@ -42,7 +43,7 @@ export default class Table extends Component {
                 //this.state.users to show up on page
                 //map function used when info inside db will be changing and it will need to be updated and displayed
             })
-          console.log(this.state.users);
+          //console.log(this.state.users);
           //sort by one category and filter by one property
         })
     }
@@ -64,6 +65,7 @@ export default class Table extends Component {
               } )}
             </tr>
           </thead>
+          <TableBody users={this.state.users} />
 
         </table>
             
