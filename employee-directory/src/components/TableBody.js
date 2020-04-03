@@ -2,19 +2,21 @@ import React from "react";
 import "../styles/TableBody.css";
 
 function TableBody({ users }) {
-    function testFunction(users) {
-        return console.log(users)
-    }
     return (
       <tbody>
         {/* //conditional with statement and question mark to check and see if something is in array */}
         {/* //below is kind of like a mini if else statement */}
         {/* // below that is what to do */}
-        {users[0] !== undefined ? (
-          users.map(({ name, dob, age }) => {
+        {users[0] !== undefined && users[0].name !== undefined ? (
+          users.map(({ name, dob, location, email }) => {
             return (
               <tr>
-                <td className="align-middle"></td>
+                <td className="align-middle">
+                  {name.title} {name.first} {name.last}
+                </td>
+                <td className="align-middle">{email}</td>
+                <td className="align-middle">{dob.age}</td>
+                <td className="align-middle">{location.state}</td>
               </tr>
             );
           })
