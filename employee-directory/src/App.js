@@ -5,11 +5,11 @@ import Table from './components/TableContainer';
 
 function App() {
   return (
-    <div className="App">
-      <Header /> 
-      <Table />
-      {/* only needs open and close if something is inside components, this will be like a wrapper for the page*/}
-    </div>
+      <div className="App">
+        <Header />
+        <Table />
+        {/* only needs open and close if something is inside components, this will be like a wrapper for the page*/}
+      </div>
   );
 }
 

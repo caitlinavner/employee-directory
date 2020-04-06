@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  background-image: url("../src/images/moody_blue-1024x683.jpeg");
+}
+
+
+
+#td {
+  font-style: italic;
 }
 
 .App-logo {

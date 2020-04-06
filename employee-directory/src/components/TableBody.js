@@ -12,7 +12,7 @@ function TableBody({ users }) {
             return (
               <tr>
                 <td className="align-middle">
-                  {name.title} {name.first} {name.last}
+                  {name.first} {name.last}
                 </td>
                 <td className="align-middle">{email}</td>
                 <td className="align-middle">{dob.age}</td>
