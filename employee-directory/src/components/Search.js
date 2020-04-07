@@ -17,7 +17,7 @@ function Search({ handleSearch }) {
               className="btn btn-outline-success my-2 my-sm-0"
               type="submit"
             >
-              Search
+              Search By Letter, First Name or Last Name
             </button>
           </form>
         </nav>
