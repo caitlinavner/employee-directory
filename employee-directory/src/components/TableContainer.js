@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/TableContainer.css";
 import API from "../utils/API";
 import TableBody from "./TableBody";
+import Search from "./Search";
 
 export default class Table extends Component {
   constructor() {
@@ -12,7 +13,7 @@ export default class Table extends Component {
       users: [{}],
       //don't use a comma at the end otherwise it'll keep looking
       //sort users and put them in a new array
-      sortedUsers: [{}],
+      filteredUsers: [{}],
       order: "ascending",
       //function and pass in
       //key value pairs has space after colon
@@ -22,6 +23,15 @@ export default class Table extends Component {
         { name: "Age", colWidth: "10%" },
         { name: "Location", colWidth: "10%" }
       ],
+      handleSearch: e => {
+        console.log(e.target.value);
+        const search = e.target.value;
+        const filteredTable = this.state.users.filter(event => {
+          let searchItem = Object.values(event).join("").toLowerCase();
+          return searchItem.indexOf(search.toLowerCase()) !== -1;
+        });
+        this.setState({ filteredUsers: filteredTable })
+      },
       handleOrder: tableHeadings => {
         if (this.state.order === "ascending") {
           this.setState({ order: "descending" });
@@ -63,12 +73,12 @@ export default class Table extends Component {
       this.setState({
         users: APIresults.data.results,
         //.data comes from API
-        sortedUsers: APIresults.data.results
+        filteredUsers: APIresults.data.results
         //build table and get results to display
         //this.state.users to show up on page
         //map function used when info inside db will be changing and it will need to be updated and displayed
       });
-      console.log(this.state.users);
+      console.log(this.state.filteredUsers);
       //sort by one category and filter by one property
     });
   }
@@ -77,6 +87,7 @@ export default class Table extends Component {
     return (
       <div className="container">
         <div className="wrapper">
+          <Search handleSearch={this.state.handleSearch} />
           <div className="table-container">
             {/* sorting requires State to track things dynamically */}
             <table className="table">
@@ -100,7 +111,7 @@ export default class Table extends Component {
                 </tr>
               </thead>
               {/* should use filteredUsers */}
-              <TableBody users={this.state.users} />
+              <TableBody users={this.state.filteredUsers} />
         </table>
       </div>
     </div>
