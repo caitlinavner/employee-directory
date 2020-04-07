@@ -7,6 +7,7 @@ export default class Header extends Component {
         return (
             <div className="header">
                 <h1>Employee Directory</h1>
+                <h5> Search by letter, first or last name</h5>
             </div>
         )
     }
