@@ -3,7 +3,7 @@ React App
 Search for user by letter, first name or last name. Sort users alphabetically by clicking on "Name".
 First run 'npm install'
 Start app by running 'npm start'
-Sort and filter users
+Sort and filter users.
 
 User Story
 
